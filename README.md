@@ -1,49 +1,71 @@
-![CF](http://i.imgur.com/7v5ASc8.png) 16: Basic Auth
-===
+# RESTful API ![travis build status](https://travis-ci.com/tganyan/11-14-express-api.svg?branch=master)
 
-## Submission Instructions
-  * Follow the lab submission instructions in the reference folder 
+This is a project to build a restful api with the ability to get, put, post, and delete json data.
 
-## Learning Objectives  
-* students will be able to create basic authorization middleware
-* students will be able to test basic authorization for signup/signin routes
+## Getting Started
 
-## Requirements
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Feature Tasks
+### Prerequisites
 
-* create an HTTP server using `express`
-* using `mongoose`, create an **Account** model with the following properties and options:
-  * `username` - *required and unique*
-  * `email` - *required and unique*
-  * `password` - *required - this must be hashed and can not stored as plain text*
-* use the **npm** `debug` module to log function calls that are used within your application
-* use the **express** `Router` to create a custom router for allowing users to **sign up** and **sign in**
-* use the **npm** `dotenv` module to house the following environment variables:
-  * `PORT`
-  * `MONGODB_URI`
-  * `APP_SECRET` *(used for signing and verify tokens)*
+You must have NodeJS installed along with either NPM or Yarn.
 
-## Server Endpoints
-### `/api/signup`
-* `POST` request
-* the client should pass the username and password in the body of the request
-* the server should respond with a token (generated using `jwt`)
-* the server should respond with **400 Bad Request** to a failed request
+### Installing
 
-### `/api/signin`
-* `GET` request
-* the client should pass the username and password to the server using a `Basic:` authorization header
-* use middleware to parse the auth header for username/password
-* perform some basic validation
-* the server should respond with a token for authenticated users
-* the server should respond with **401 Unauthorized** for non-authenticated users
+Copy the link from the github repository
+In the command line, navigate to the parent directory where you want to store this project
+In the command line, type:
+```
+git clone <repository url>
+```
+Once the project files are there, type:
+```
+npm install
+```
+or
+```
+yarn i
+```
 
-## Tests
-* create a test that will ensure that your API returns a status code of **404** for any routes that have not been registered
-* `/api/signup`
-* `POST` - test **400**, if no request body has been provided or the body is invalid
-* `POST` - test **200**, if the request body has been provided and is valid
-* `/api/signin`
-* `GET` - test **401**, if the user could not be authenticated
-* `GET` - test **200**, responds with token for a request with a valid basic authorization header
+## Running the tests
+
+1. Testing for valid post request on mountain 
+2. Testing for valid post request on region
+3. Testing for valid response on invalid post request on mountain
+4. Testing for proper response on bad route request on mountain
+5. Testing for proper response on valid route with no id on mountain
+6. Testing for valid put request on mountain
+
+##### To run individual tests (GET, PUT, POST, DELETE), use the below routes:
+```
+/api/mountains/
+/api/regions/
+```
+
+##### To run all tests:
+```
+npm run test
+```
+
+## Built With
+
+* [NodeJS](https://nodejs.org) - The javascript runtime used
+* [Jest](https://jestjs.io/) - Testing platform used
+* [Eslint](https://eslint.org/) - Coding style linter
+* [Superagent](https://visionmedia.github.io/superagent/) - AJAX with less suck!
+* [Httpie](https://httpie.org/) - A fantastic http client
+* [Winston](https://www.npmjs.com/package/winston) - One seriously awesome logging tool
+* [Express](https://www.npmjs.com/package/express) - A robust and versatile tool for creating servers
+* [Faker](https://www.npmjs.com/package/faker) - A useful package for generating fake test data
+* [Body Parser](https://www.npmjs.com/package/body-parser) - A middleware tool for parsing requests
+* [MongoDB](https://www.mongodb.com/) - A dynamic database
+* [Mongoosejs](https://www.npmjs.com/package/mongoose) - An asynchronous object modeling tool
+
+
+## Authors
+
+* [**Tyler Anyan**](http://tyleranyan.com/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
