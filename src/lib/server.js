@@ -6,16 +6,16 @@ const logger = require('./logger');
 const loggerMiddleware = require('./logger-middleware');
 const errorMiddleware = require('./error-middleware');
 
-const categoryRoutes = require('../routes/category-router');
-const blogPostRoutes = require('../routes/blog-post-router');
+const brandRoutes = require('../routes/brand-router');
+const guitarRoutes = require('../routes/guitar-router');
 const authRoutes = require('../routes/auth-router');
 
 const app = express();
 
 app.use(loggerMiddleware);
 
-app.use(categoryRoutes);
-app.use(blogPostRoutes);
+app.use(brandRoutes);
+app.use(guitarRoutes);
 app.use(authRoutes);
 
 app.all('*', (request, response) => {

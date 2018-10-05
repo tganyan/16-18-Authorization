@@ -28,7 +28,7 @@ module.exports = (request, response, next) => {
         return next(new HttpError(400, 'AUTH: invalid request'));
       }
 
-      return account.p_VerifyPassword(password);
+      return account.pVerifyPassword(password);
     })
     .then((matchedAccount) => {
       request.account = matchedAccount;

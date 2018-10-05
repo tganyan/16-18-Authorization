@@ -5,17 +5,18 @@ const superagent = require('superagent');
 const accountMock = require('./lib/account-mock');
 const server = require('../lib/server');
 
-const API_URL = `http://localhost:${process.env.PORT}/api/signup`;
+const API_URL = `http://localhost:${process.env.PORT}`;
 
 describe('AUTH ROUTER', () => {
   beforeAll(server.start);
   afterAll(server.stop);
+  beforeEach(accountMock.pCleanAccountMock);
 
   test('should return a 200 status code and a token', () => {
-    return superagent.post(API_URL)
+    return superagent.post(`${API_URL}/api/signup`)
       .send({
-        username: faker.internet.username(1),
-        password: faker.internet.password(),
+        username: faker.lorem.words(1),
+        password: faker.lorem.words(1),
         email: faker.internet.email(),
       })
       .then((response) => {

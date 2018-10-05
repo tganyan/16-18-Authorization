@@ -14,11 +14,11 @@ router.post('/api/signup', jsonParser, (request, response, next) => {
   if (!request.body.password) {
     return next(new HttpError(401, 'Please provide a password'));
   }
-  return Account.create(request.body.username, request.body.email.request.body.password)
+  return Account.create(request.body.username, request.body.email, request.body.password)
     .then((createdAccount) => {
       delete request.body.password;
       logger.log(logger.INFO, 'AUTH: creating token');
-      return createdAccount.p_CreateToken();
+      return createdAccount.pCreateToken();
     })
     .then((token) => {
       logger.log(logger.INFO, 'Responding with 200 status code and a token');

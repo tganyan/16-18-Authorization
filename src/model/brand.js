@@ -2,25 +2,20 @@
 
 const mongoose = require('mongoose');
 
-const categorySchema = mongoose.Schema({
+const brandSchema = mongoose.Schema({
   timestamp: {
     type: Date,
     default: () => new Date(),
   },
-  title: {
+  name: {
     type: String,
     required: true,
     unique: true,
   },
-  content: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  blogPosts: [
+  guitars: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'blog-post',
+      ref: 'guitar',
     },
   ],
 },
@@ -28,4 +23,4 @@ const categorySchema = mongoose.Schema({
   usePushEach: true,
 });
 
-module.exports = mongoose.model('category', categorySchema);
+module.exports = mongoose.model('brand', brandSchema);
