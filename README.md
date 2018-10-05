@@ -29,23 +29,8 @@ yarn i
 
 ## Running the tests
 
-1. Testing for valid post request on mountain 
-2. Testing for valid post request on region
-3. Testing for valid response on invalid post request on mountain
-4. Testing for proper response on bad route request on mountain
-5. Testing for proper response on valid route with no id on mountain
-6. Testing for valid put request on mountain
+There is currently an issue with bcrypt, tests are not possible at this point but the issue will be resolved soon.
 
-##### To run individual tests (GET, PUT, POST, DELETE), use the below routes:
-```
-/api/mountains/
-/api/regions/
-```
-
-##### To run all tests:
-```
-npm run test
-```
 
 ## Built With
 
@@ -60,6 +45,8 @@ npm run test
 * [Body Parser](https://www.npmjs.com/package/body-parser) - A middleware tool for parsing requests
 * [MongoDB](https://www.mongodb.com/) - A dynamic database
 * [Mongoosejs](https://www.npmjs.com/package/mongoose) - An asynchronous object modeling tool
+* [Jsonwebtoken](https://jwt.io/) - Tool for industry standard method for securely representing claims between two parties
+* [Bcrypt](https://www.npmjs.com/package/bcrypt) - A useful tool for hashing passwords
 
 
 ## Authors
